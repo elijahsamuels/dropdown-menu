@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import { ReactComponent as Apps } from "./icons/apps.svg";
+import { ReactComponent as Email } from "./icons/email.svg";
+import { ReactComponent as Home } from "./icons/home.svg";
+import { ReactComponent as Search } from "./icons/search.svg";
+import { ReactComponent as User } from "./icons/user.svg";
+
+import React from "react";
+import DropdownMenu from "./components/DropdownMenu";
+import NavItem from "./components/NavItem";
+import Navbar from "./components/Navbar";
+import Main from "./pages/Main";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar>
+        <NavItem icon={<Home />} href={"www.home.com"} />
+        <NavItem icon={<Search />} />
+        <NavItem icon={<Apps />} href={"www.apps.com"} />
+        <NavItem icon={<Email />} href={"www.gmail.com"} />
+        <NavItem icon={<User />}>
+          <DropdownMenu />
+        </NavItem>
+      </Navbar>
+
+			<Main />
+
     </div>
   );
 }
